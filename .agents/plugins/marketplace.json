@@ -1,7 +1,7 @@
 {
-  "name": "openai-curated",
+  "name": "gabo-curated",
   "interface": {
-    "displayName": "Codex official"
+    "displayName": "Gabo curated"
   },
   "plugins": [
     {
