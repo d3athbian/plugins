@@ -20,3 +20,19 @@ Highlighted richer examples in this repo include:
 - `plugins/build-web-apps` for deployment, UI, payments, and database workflows
 - `plugins/expo` for Expo and React Native apps, SDK upgrades, EAS workflows, and Codex Run actions
 - `plugins/netlify`, `plugins/remotion`, and `plugins/google-slides` for additional public skill- and MCP-backed plugin bundles
+
+## Fork notes (`d3athbian/plugins`, marketplace `gabo-curated`)
+
+This fork diverges from `openai/plugins` to make plugins work with personal
+accounts without OpenAI connector provisioning or Google preview-program
+enrollment:
+
+- `plugins/google-calendar` (v1.3.0): the remote MCP server
+  (`calendarmcp.googleapis.com`) requires enrollment in the Google Workspace
+  Developer Preview Program. Replaced with a **local stdio MCP server over the
+  public Calendar API** using the user's own Google Cloud OAuth client. See
+  [`plugins/google-calendar/README.md`](plugins/google-calendar/README.md)
+  for setup, security notes, and troubleshooting.
+- Connector-only surfaces (`.app.json`) are being dropped from Google plugins
+  because the official connectors are not provisioned for non-premium
+  accounts (zero tools at install time).
